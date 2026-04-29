@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home"
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { json } from "react-router-dom";
 // import { BiSunFill, BiMoon } from "react-icons/bi";
 
@@ -128,27 +129,24 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    Home
-                  </a>
+                <li className="nav-item"> 
+                  <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/add_product">
-                    Add Blog
-                  </a>
+                  <Link className="nav-link" to="/add_product">
+  Add Blog
+</Link>
                 </li>
 
                 <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="/"
+
+                  <Link className="nav-link dropdown-toggle"
                     role="button"
                     data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Categories
-                  </a>
+                    aria-expanded="false" to="/">
+  Categories
+</Link>
+                
 
                   <ul className="dropdown-menu">
                     {categories.map((category) => (
@@ -174,13 +172,13 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                 )}
               </button>
               <div className="d-flex align-items-center cart">
-                <a href="/cart" className="nav-link text-dark">
-                  <i
+                
+                  <Link  className="nav-link text-dark" to="/cart"><i
                     className="bi bi-heart me-2"
                     style={{ display: "flex", alignItems: "center" }}
                   >
-                    Favourite                  </i>
-                </a>
+                    Favourite                  </i></Link>
+              
                 {/* <form className="d-flex" role="search" onSubmit={handleSearch} id="searchForm"> */}
                 <input
                   className="form-control me-2"
@@ -197,9 +195,9 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
                     {searchResults.length > 0 ? (  
                         searchResults.map((result) => (
                           <li key={result.id} className="list-group-item">
-                            <a href={`/product/${result.id}`} className="search-result-link">
+                            <Link to={`/product/${result.id}`} className="search-result-link">
                             <span>{result.name}</span>
-                            </a>
+                            </Link>
                           </li>
                         ))
                     ) : (
