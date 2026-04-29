@@ -19,12 +19,12 @@ const UpdateProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/product/${id}`
+          `https://blog-hosting-server.onrender.com/api/product/${id}`
         );
         setProduct(response.data);
 
         const responseImage = await axios.get(
-          `http://localhost:8080/api/product/${id}/image`,
+          `https://blog-hosting-server.onrender.com/api/product/${id}/image`,
           { responseType: "blob" }
         );
         const imageFile = await converUrlToFile(responseImage.data, response.data.imageName);
@@ -53,7 +53,7 @@ const UpdateProduct = () => {
     );
 
     axios
-      .put(`http://localhost:8080/api/product/${id}`, updatedProduct, {
+      .put(`https://blog-hosting-server.onrender.com/api/product/${id}`, updatedProduct, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

@@ -15,7 +15,7 @@ const Cart = () => {
           cart.map(async (item) => {
             try {
               const response = await axios.get(
-                `http://localhost:8080/api/product/${item.id}/image`,
+                `https://blog-hosting-server.onrender.com/api/product/${item.id}/image`,
                 { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);
